@@ -306,7 +306,7 @@
                   });
         };
         h(!0, a.getOptions().exporting, {
-            libURL: "https://code.highcharts.com/5.0.6//admin/lib/",
+            libURL: "https://code.highcharts.com/5.0.6//admin//admin//admin/lib/",
             buttons: {
                 contextButton: {
                     menuItems: [

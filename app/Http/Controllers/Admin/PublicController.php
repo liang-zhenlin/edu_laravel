@@ -39,4 +39,13 @@ class PublicController extends Controller
             ]);
         }
     }
+
+    // 退出登录
+    public function logout() {
+        // 退出
+        Auth::guard('admin') -> logout();
+
+        // 跳转到登录页面
+        return redirect('/admin/public/login');
+    }
 }

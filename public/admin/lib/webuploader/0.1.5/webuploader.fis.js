@@ -144,7 +144,7 @@ return (function (root, factory) {
      *
      * * module `base`：WebUploader.Base
      * * module `file`: WebUploader.File
-     * * module `/admin/lib/dnd`: WebUploader.Lib.Dnd
+     * * module `/admin//admin//admin/lib/dnd`: WebUploader.Lib.Dnd
      * * module `runtime/html5/dnd`: WebUploader.Runtime.Html5.Dnd
      *
      *
@@ -1111,7 +1111,7 @@ return (function (root, factory) {
     /**
      * @fileOverview 错误信息
      */
-    define("/admin/lib/dnd", [
+    define("/admin//admin//admin/lib/dnd", [
         "base",
         "mediator",
         "runtime/client",
@@ -1402,7 +1402,7 @@ return (function (root, factory) {
     define("widgets/filednd", [
         "base",
         "uploader",
-        "/admin/lib/dnd",
+        "/admin//admin//admin/lib/dnd",
         "widgets/widget",
     ], function (Base, Uploader, Dnd) {
         var $ = Base.$;
@@ -1476,7 +1476,7 @@ return (function (root, factory) {
     /**
      * @fileOverview 错误信息
      */
-    define("/admin/lib/filepaste", [
+    define("/admin//admin//admin/lib/filepaste", [
         "base",
         "mediator",
         "runtime/client",
@@ -1512,7 +1512,7 @@ return (function (root, factory) {
     define("widgets/filepaste", [
         "base",
         "uploader",
-        "/admin/lib/filepaste",
+        "/admin//admin//admin/lib/filepaste",
         "widgets/widget",
     ], function (Base, Uploader, FilePaste) {
         var $ = Base.$;
@@ -1563,7 +1563,7 @@ return (function (root, factory) {
     /**
      * @fileOverview Blob
      */
-    define("/admin/lib/blob", [
+    define("/admin//admin//admin/lib/blob", [
         "base",
         "runtime/client",
     ], function (Base, RuntimeClient) {
@@ -1612,9 +1612,9 @@ return (function (root, factory) {
      * 以至于要调用Flash里面的File，也可以像调用HTML5版本的File一下。
      * @fileOverview File
      */
-    define("/admin/lib/file", [
+    define("/admin//admin//admin/lib/file", [
         "base",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (Base, Blob) {
         var uid = 1,
             rExt = /\.([^.]+)$/;
@@ -1647,10 +1647,10 @@ return (function (root, factory) {
     /**
      * @fileOverview 错误信息
      */
-    define("/admin/lib/filepicker", [
+    define("/admin//admin//admin/lib/filepicker", [
         "base",
         "runtime/client",
-        "/admin/lib/file",
+        "/admin//admin//admin/lib/file",
     ], function (Base, RuntimeClent, File) {
         var $ = Base.$;
 
@@ -1791,7 +1791,7 @@ return (function (root, factory) {
     define("widgets/filepicker", [
         "base",
         "uploader",
-        "/admin/lib/filepicker",
+        "/admin//admin//admin/lib/filepicker",
         "widgets/widget",
     ], function (Base, Uploader, FilePicker) {
         var $ = Base.$;
@@ -1929,10 +1929,10 @@ return (function (root, factory) {
     /**
      * @fileOverview Image
      */
-    define("/admin/lib/image", [
+    define("/admin//admin//admin/lib/image", [
         "base",
         "runtime/client",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (Base, RuntimeClient, Blob) {
         var $ = Base.$;
 
@@ -2027,7 +2027,7 @@ return (function (root, factory) {
     define("widgets/image", [
         "base",
         "uploader",
-        "/admin/lib/image",
+        "/admin//admin//admin/lib/image",
         "widgets/widget",
     ], function (Base, Uploader, Image) {
         var $ = Base.$,
@@ -2755,7 +2755,7 @@ return (function (root, factory) {
         "uploader",
         "queue",
         "file",
-        "/admin/lib/file",
+        "/admin//admin//admin/lib/file",
         "runtime/client",
         "widgets/widget",
     ], function (Base, Uploader, Queue, WUFile, File, RuntimeClient) {
@@ -2897,7 +2897,7 @@ return (function (root, factory) {
 
             /**
              * @event filesQueued
-             * @param {File} files 数组，内容为原始File(/admin/lib/File）对象。
+             * @param {File} files 数组，内容为原始File(/admin//admin//admin/lib/File）对象。
              * @description 当一批文件添加进队列以后触发。
              * @for  Uploader
              */
@@ -3126,7 +3126,7 @@ return (function (root, factory) {
     /**
      * @fileOverview Transport
      */
-    define("/admin/lib/transport", [
+    define("/admin//admin//admin/lib/transport", [
         "base",
         "runtime/client",
         "mediator",
@@ -3262,7 +3262,7 @@ return (function (root, factory) {
         "base",
         "uploader",
         "file",
-        "/admin/lib/transport",
+        "/admin//admin//admin/lib/transport",
         "widgets/widget",
     ], function (Base, Uploader, WUFile, Transport) {
         var $ = Base.$,
@@ -4345,7 +4345,7 @@ return (function (root, factory) {
     /**
      * @fileOverview Md5
      */
-    define("/admin/lib/md5", [
+    define("/admin//admin//admin/lib/md5", [
         "runtime/client",
         "mediator",
     ], function (RuntimeClient, Mediator) {
@@ -4382,8 +4382,8 @@ return (function (root, factory) {
     define("widgets/md5", [
         "base",
         "uploader",
-        "/admin/lib/md5",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/md5",
+        "/admin//admin//admin/lib/blob",
         "widgets/widget",
     ], function (Base, Uploader, Md5, Blob) {
         return Uploader.register({
@@ -4547,7 +4547,7 @@ return (function (root, factory) {
      */
     define("runtime/html5/blob", [
         "runtime/html5/runtime",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (Html5Runtime, Blob) {
         return Html5Runtime.register("Blob", {
             slice: function (start, end) {
@@ -4566,7 +4566,7 @@ return (function (root, factory) {
     define("runtime/html5/dnd", [
         "base",
         "runtime/html5/runtime",
-        "/admin/lib/file",
+        "/admin//admin//admin/lib/file",
     ], function (Base, Html5Runtime, File) {
         var $ = Base.$,
             prefix = "webuploader-dnd-";
@@ -4796,7 +4796,7 @@ return (function (root, factory) {
     define("runtime/html5/filepaste", [
         "base",
         "runtime/html5/runtime",
-        "/admin/lib/file",
+        "/admin//admin//admin/lib/file",
     ], function (Base, Html5Runtime, File) {
         return Html5Runtime.register("FilePaste", {
             init: function () {
@@ -8094,7 +8094,7 @@ return (function (root, factory) {
      */
     define("runtime/flash/blob", [
         "runtime/flash/runtime",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (FlashRuntime, Blob) {
         return FlashRuntime.register("Blob", {
             slice: function (start, end) {

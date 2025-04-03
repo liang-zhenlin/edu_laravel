@@ -496,7 +496,7 @@
      *
      * * module `base`：WebUploader.Base
      * * module `file`: WebUploader.File
-     * * module `/admin/lib/dnd`: WebUploader.Lib.Dnd
+     * * module `/admin//admin//admin/lib/dnd`: WebUploader.Lib.Dnd
      * * module `runtime/html5/dnd`: WebUploader.Runtime.Html5.Dnd
      *
      *
@@ -1463,7 +1463,7 @@
     /**
      * @fileOverview Blob
      */
-    define("/admin/lib/blob", [
+    define("/admin//admin//admin/lib/blob", [
         "base",
         "runtime/client",
     ], function (Base, RuntimeClient) {
@@ -1512,9 +1512,9 @@
      * 以至于要调用Flash里面的File，也可以像调用HTML5版本的File一下。
      * @fileOverview File
      */
-    define("/admin/lib/file", [
+    define("/admin//admin//admin/lib/file", [
         "base",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (Base, Blob) {
         var uid = 1,
             rExt = /\.([^.]+)$/;
@@ -1547,10 +1547,10 @@
     /**
      * @fileOverview 错误信息
      */
-    define("/admin/lib/filepicker", [
+    define("/admin//admin//admin/lib/filepicker", [
         "base",
         "runtime/client",
-        "/admin/lib/file",
+        "/admin//admin//admin/lib/file",
     ], function (Base, RuntimeClent, File) {
         var $ = Base.$;
 
@@ -1935,7 +1935,7 @@
     define("widgets/filepicker", [
         "base",
         "uploader",
-        "/admin/lib/filepicker",
+        "/admin//admin//admin/lib/filepicker",
         "widgets/widget",
     ], function (Base, Uploader, FilePicker) {
         var $ = Base.$;
@@ -2073,10 +2073,10 @@
     /**
      * @fileOverview Image
      */
-    define("/admin/lib/image", [
+    define("/admin//admin//admin/lib/image", [
         "base",
         "runtime/client",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (Base, RuntimeClient, Blob) {
         var $ = Base.$;
 
@@ -2171,7 +2171,7 @@
     define("widgets/image", [
         "base",
         "uploader",
-        "/admin/lib/image",
+        "/admin//admin//admin/lib/image",
         "widgets/widget",
     ], function (Base, Uploader, Image) {
         var $ = Base.$,
@@ -2899,7 +2899,7 @@
         "uploader",
         "queue",
         "file",
-        "/admin/lib/file",
+        "/admin//admin//admin/lib/file",
         "runtime/client",
         "widgets/widget",
     ], function (Base, Uploader, Queue, WUFile, File, RuntimeClient) {
@@ -3041,7 +3041,7 @@
 
             /**
              * @event filesQueued
-             * @param {File} files 数组，内容为原始File(/admin/lib/File）对象。
+             * @param {File} files 数组，内容为原始File(/admin//admin//admin/lib/File）对象。
              * @description 当一批文件添加进队列以后触发。
              * @for  Uploader
              */
@@ -3270,7 +3270,7 @@
     /**
      * @fileOverview Transport
      */
-    define("/admin/lib/transport", [
+    define("/admin//admin//admin/lib/transport", [
         "base",
         "runtime/client",
         "mediator",
@@ -3406,7 +3406,7 @@
         "base",
         "uploader",
         "file",
-        "/admin/lib/transport",
+        "/admin//admin//admin/lib/transport",
         "widgets/widget",
     ], function (Base, Uploader, WUFile, Transport) {
         var $ = Base.$,
@@ -4450,7 +4450,7 @@
      */
     define("runtime/html5/blob", [
         "runtime/html5/runtime",
-        "/admin/lib/blob",
+        "/admin//admin//admin/lib/blob",
     ], function (Html5Runtime, Blob) {
         return Html5Runtime.register("Blob", {
             slice: function (start, end) {
