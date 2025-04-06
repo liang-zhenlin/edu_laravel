@@ -34,24 +34,56 @@
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>
-				<th scope="col" colspan="7">权限节点</th>
+				<th scope="col" colspan="8">权限节点</th>
 			</tr>
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="40">ID</th>
-				<th width="200">权限名称</th>
-				<th>字段名</th>
+				<th width="150">权限名称</th>
+				<th width="150">控制器名称</th>
+				<th width="150">方法名称</th>
+				<th width="150">父级权限</th>
+				<th width="150">是否菜单</th>
 				<th width="100">操作</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="text-c">
-				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td>
-				<td>栏目添加</td>
-				<td></td>
+			<?php foreach($data as $val): ?>
+				<tr class="text-c">
+				<td><input type="checkbox" value="{{$val -> id}}" name=""></td>
+				<td>{{$val -> id}}</td>
+				<td>{{$val -> auth_name}}</td>
+				<td>
+					<?php if($val -> controller): ?>
+						{{$val -> controller}}
+					<?php else: ?>
+						-
+					<?php endif ?>
+				</td>
+				<td>
+					<?php if($val -> action): ?>
+						{{$val -> action}}
+					<?php else: ?>
+						-
+					<?php endif ?>
+				</td>
+				<td>
+					<?php if($val -> parent_name): ?>
+						{{$val -> parent_name}}
+					<?php else: ?>
+						顶级权限
+					<?php endif ?>
+				</td>
+				<td>
+					<?php if($val -> is_nav > 0): ?>
+						是
+					<?php else: ?>
+						否
+					<?php endif ?>
+				</td>
 				<td><a title="编辑" href="javascript:;" onclick="admin_permission_edit('角色编辑','admin-permission-add.html','1','','310')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_permission_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 			</tr>
+			<?php endforeach ?>
 		</tbody>
 	</table>
 </div>
@@ -64,6 +96,14 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript">
+
+$(function() {
+	$('table').dataTable({
+		"aoColumnDefs": [{ "bSortable": false, "aTargets": [0]}],
+		"aaSorting": [[1, "asc"]]
+	});
+})
+
 /*
 	参数解释：
 	title	标题

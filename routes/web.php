@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PublicController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\RoleController;
 
 Route::get('/', function () {
     return "larave 教育平台";
@@ -34,4 +35,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     // 权限管理模块
     Route::get('auth/index', [AuthController::class, 'index']);
     Route::any('auth/add', [AuthController::class, 'add']);
+
+    // 角色管理模块
+    Route::get('role/index', [RoleController::class, 'index']);
+    Route::any('role/assign', [RoleController::class, 'assign']);
 });

@@ -109,7 +109,10 @@
           <div class="formControls col-xs-8 col-sm-9">
             <span class="select-box" style="width: 150px">
               <select class="select" name="pid" size="1">
-                <option value="0">作为顶级权限</option>
+              <option value="0">作为顶级权限</option>
+                <?php foreach($parents as $val): ?>
+                  <option value="{{$val -> id}}">{{$val -> auth_name}}</option>
+                <?php endforeach?>
               </select>
             </span>
           </div>
@@ -135,23 +138,7 @@
             </div>
           </div>
         </div>
-        <div class="row cl">
-          <label class="form-label col-xs-4 col-sm-3">备注：</label>
-          <div class="formControls col-xs-8 col-sm-9">
-            <textarea
-              name=""
-              cols=""
-              rows=""
-              class="textarea"
-              placeholder="说点什么...100个字符以内"
-              dragonfly="true"
-              onKeyUp="$.Huitextarealength(this,100)"
-            ></textarea>
-            <p class="textarea-numberbar">
-              <em class="textarea-length">0</em>/100
-            </p>
-          </div>
-        </div>
+        {{csrf_field()}}
         <div class="row cl">
           <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
             <input
@@ -192,6 +179,18 @@
     ></script>
     <script type="text/javascript">
       $(function () {
+        $('#controller, #action').parents('.row').hide();
+
+        $('select').change(function() {
+          var _val = $(this).val();
+          $('#controller, #action').val('');
+          if(_val > 0) {
+            $('#controller, #action').parents('.row').show(500);
+          } else {
+            $('#controller, #action').parents('.row').hide(500);
+          }
+        });
+
         $(".skin-minimal input").iCheck({
           checkboxClass: "icheckbox-blue",
           radioClass: "iradio-blue",
@@ -218,17 +217,23 @@
           submitHandler: function (form) {
             $(form).ajaxSubmit({
               type: "post",
-              url: "xxxxxxx",
+              url: "",
               success: function (data) {
-                layer.msg("添加成功!", { icon: 1, time: 1000 });
+                if(data == '1') {
+                  layer.msg("添加成功!", { icon: 1, time: 2000 }, function() {
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.$(".btn-refresh").click();
+                    parent.layer.close(index);
+                  });
+                } else {
+                  layer.msg("添加失败!", { icon: 2, time: 2000 });
+                }
+                
               },
               error: function (XmlHttpRequest, textis_nav, errorThrown) {
-                layer.msg("error!", { icon: 1, time: 1000 });
+                layer.msg("error!", { icon: 2, time: 2000 });
               },
             });
-            var index = parent.layer.getFrameIndex(window.name);
-            parent.$(".btn-refresh").click();
-            parent.layer.close(index);
           },
         });
       });

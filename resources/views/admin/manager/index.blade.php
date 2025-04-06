@@ -45,7 +45,7 @@
 				<th width="150">登录名</th>
 				<th width="90">手机</th>
 				<th width="180">邮箱</th>
-				<th width="50">角色</th>
+				<th width="80">角色</th>
 				<th width="130">加入时间</th>
 				<th width="100">是否已启用</th>
 				<th width="100">操作</th>
@@ -59,7 +59,7 @@
                     <td>{{$val -> username}}</td>
                     <td>{{$val -> mobile}}</td>
                     <td>{{$val -> email}}</td>
-                    <td>{{$val -> role_id}}</td>
+                    <td>{{$val -> role -> role_name }}</td>
                     <td>{{$val -> created_at}}</td>
                     <td class="td-status">
                         <?php if($val -> status == '2' ): ?>

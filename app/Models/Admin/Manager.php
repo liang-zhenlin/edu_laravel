@@ -12,4 +12,8 @@ class Manager extends Model implements \Illuminate\Contracts\Auth\Authenticatabl
 
     use Authenticatable;
 
+    public function role() {
+        return $this -> hasOne('App\Models\Admin\Role', 'id', 'role_id');
+    }
+
 }
